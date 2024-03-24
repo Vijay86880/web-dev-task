@@ -1,40 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSV File Upload</title>
+    <link rel="stylesheet"href="{{url_for('static',filename='index.css')}}">
 </head>
 <body>
-    <h1>crop_fertilizers</h1>
+    <h1>Multi-criteria Agriculture Recommendation System using Machine Learning for Crop and fertilizers Prediction</h1>
     
-    <form action="/upload" method="post" enctype="multipart/form-data">
+    <form id="id1" action="/upload" method="post" enctype="multipart/form-data">
         <label for="file">Choose a CSV file:</label>
         <input type="file" name="file" accept=".csv" required>
         <br>
         <button type="submit">Upload</button>
     </form>
 
-    <form action="/preprocess" method="get">
-        <button type="submit">Preprocess</button>
-    </form>
+    <div class="button-container">
+        <form action="/preprocess" method="get">
+            <button type="submit">Preprocess</button>
+        </form>
 
-    <form action="/split" method="get">
-        <button type="submit">Split</button>
-    </form>
+        <form action="/split" method="get">
+            <button type="submit">Split</button>
+        </form>
 
-    <form action="/random_forest" method="get">
-        <button type="submit">Random Forest</button>
-    </form>
+        <form action="/random_forest" method="get">
+            <button type="submit">Random Forest</button>
+        </form>
+
+        <form action="/xgboost" method="get">
+            <button type="submit">XGBoost</button>
+        </form>
+
+
+        <form action="/svm" method="get">
+            <button type="submit">SVM</button>
+        </form>
+
+        <form action="/ann" method="get">
+            <button type="submit">ANN</button>
+        </form>
+
+        <form action="/make_prediction" method="get">
+            <button type="submit">Make Prediction</button>
+        </form>
+        
+        
+   
+<span>
+    {% if xgbooster_graph %}
+        <h2>XGBooster Graph</h2>
+        {{ xgbooster_graph | safe }}
+    {% endif %}
+</span>
+        <span>
+        {% if graph %}
+            <h2>Accuracy Graph</h2>
+            {{ graph | safe }}
+        {% endif %}
+        
+        {% if precision_plot %}
+            <h2>Precision Values Graph</h2>
+            {{ precision_plot | safe }}
+        {% endif %}
+        
+        {% if recall_plot %}
+            <h2>Recall Values Graph</h2>
+            {{ recall_plot | safe }}
+        {% endif %}
+        
+        {% if f1_plot %}
+            <h2>F1-Score Values Graph</h2>
+            {{ f1_plot | safe }}
+        {% endif %}
+        </span>
+        
+
+
+  
+    </div>
+    {% if message %}
+    <p class="message">{{ message }}</p>
+    {% endif %}
 
     {% if table %}
         <h2>Table Preview:</h2>
-        {{ table | safe }}
+        <div id="table-preview">
+            {{ table | safe }}
+        </div>
     {% endif %}
+    
 
-    {% if message %}
-        <p style="color: red;">{{ message }}</p>
-    {% endif %}
 
 </body>
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet"href="{{url_for('static',filename='fs.css')}}">
+</head>
+<body>
+    <div class="container">
+    <h1>Feature Selection Result</h1>
+    <p>Feature Selection Accuracy Score: {{ fs_accuracy*100 }}</p>
+    <p>Feature Selection Precision Score: {{ fs_precision*100 }}</p>
+    <p>Feature Selection Recall Score: {{ fs_recall*100 }}</p>
+    <p>Feature Selection F1 Score: {{ fs_f1*100 }}</p>
+
+    <form action="/" method="get">
+        <button type="submit">HOME PAGE</button>
+    </form>
+
+    <form action="/xgboost" method="get">
+        <button id="id2">Previous Algorithm</button>
+    </form>
+
+    <form action="/svm" method="get">
+        <button id="id1" type="submit">Next Algorithm</button>
+        
+    </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet"href="{{url_for('static',filename='xgbooster.css')}}">
+
+</head>
+<body>
+    <div class="container">
+    <h1>XGBoost Result</h1>
+    <p>XGBooster Accuracy Score : {{ xgb_accuracy*100 }}</p>
+    <p>XGBooster Precision Score : {{ xgb_precision*100 }}</p>
+    <p>XGBooster Recall Score : {{ xgb_recall*100 }}</p>
+    <p>XGBooster F1 Score : {{ xgb_f1*100 }}</p>
+
+    <form action="/" method="get">
+        <button type="submit">HOME PAGE</button>
+    </form>
+
+    <form action="/random_forest" method="get">
+        <button id="id2">Previous Algorithm</button>
+    </form>
+
+    <form action="/feature_selection" method="get">
+        <button id="id1" type="submit">Next Algorithm</button>
+        
+    </form></div>
+
+    
+</body>
+</html>

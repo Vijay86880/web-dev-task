@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet"href="{{url_for('static',filename='prediction_result.css')}}">
+</head>
+<body>
+    <h1>Prediction Result</h1>
+
+    <p>Prediction: {{ prediction }}</p>
+
+    <button onclick="goToHomePage()">Home Page</button>
+    <button onclick="back_page()">Back Page</button>
+    
+    <script>
+
+        function goToHomePage() {
+            window.location.href = "/";
+        }
+        function back_page(){
+            window.location.href="/make_prediction"
+        }
+    </script>
+
+    
+</body>
+</html>

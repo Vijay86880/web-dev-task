@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet"href="{{url_for('static',filename='ann.css')}}">
+</head>
+<body>
+    <div class="container">
+    <h1>ANN Result</h1>
+    <p>Accuracy: {{ ann_accuracy*100 }}</p>
+    <p>Precision: {{ ann_precision*100}}</p>
+    <p>Recall: {{ ann_recall*100 }}</p>
+    <p>F1-Score: {{ ann_f1*100 }}</p>
+
+    <form action="/" method="get">
+        <button type="submit">Home Page</button>
+    </form>
+
+    <form action="/svm" method="get">
+        <button id="id1">Previous Algorithm</button>
+    </form>
+    </div>
+</body>
+</html>

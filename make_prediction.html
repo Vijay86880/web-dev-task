@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet"href="{{url_for('static',filename='make_prediction.css')}}">
+</head>
+
+<body>
+    <h1>Make Prediction</h1>
+    <form action="/make_prediction_result" method="post">
+        <label for="Soil_color">Soil Color:</label>
+        <input type="text" name="Soil_color" required>
+
+        <label for="pH">pH:</label>
+        <input type="text" name="pH" required>
+
+        <label for="Rainfall">Rainfall:</label>
+        <input type="text" name="Rainfall" required>
+
+        <label for="Temperature">Temperature:</label>
+        <input type="text" name="Temperature" required>
+
+        <label for="Crop">Crop:</label>
+        <input type="text" name="Crop" required>
+
+        <button type="submit">Submit Prediction</button>
+        
+    </form>
+    <form action="/" method="get">
+        <button type="submit">Home Page</button>
+    </form>
+    
+</body>
+</html>
